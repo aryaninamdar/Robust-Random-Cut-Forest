@@ -17,4 +17,41 @@ Use pip to install rrcf:
 $ pip install rrcf
 ```
 
+## Robut Random Cut Trees
+A Robust Random Cut Tree (RRCT) is a binary search tree that can be used to detect outliers in a point set. A RRCT can be instantiated from a point set. Points can also be added and removed from an RRCT.
 
+### Creating the Tree
+```ruby
+import numpy as np
+import rrcf
+
+# A (robust) random cut tree can be instantiated from a point set (n x d)
+X = np.random.randn(100, 2)
+tree = rrcf.RCTree(X)
+
+# A random cut tree can also be instantiated with no points
+tree = rrcf.RCTree()
+```
+
+### Inserting Points
+```ruby
+tree = rrcf.RCTree()
+
+for i in range(6):
+    x = np.random.randn(2)
+    tree.insert_point(x, index=i)
+```
+
+```ruby
+─+
+ ├───+
+ │   ├───+
+ │   │   ├──(0)
+ │   │   └───+
+ │   │       ├──(5)
+ │   │       └──(4)
+ │   └───+
+ │       ├──(2)
+ │       └──(3)
+ └──(1)
+```
