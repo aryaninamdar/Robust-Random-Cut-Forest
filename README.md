@@ -141,4 +141,4 @@ for tree in forest:
 avg_codisp /= index
 ```
 
-![Image not found](https://github.com/aryaninamdar/Random-Robust-Cut-Forest/blob/main/examples/example1.png)
+![Image not found](https://github.com/aryaninamdar/Random-Robust-Cut-Forest/blob/main/examples/example1-1.png)
