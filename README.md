@@ -11,3 +11,10 @@ The **Robust Random Cut Forest (RRCF) algorithm** is an ensemble method for dete
 
 This repository provides an open-source implementation of the RRCF algorithm and its core data structures for the purposes of facilitating experimentation and enabling future extensions of the RRCF algorithm.
 
+## Installation
+Use pip to install rrcf:
+```ruby
+$ pip install rrcf
+```
+
+
