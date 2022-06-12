@@ -190,6 +190,6 @@ for index, point in enumerate(points):
         if not index in avg_codisp:
             avg_codisp[index] = 0
         avg_codisp[index] += tree.codisp(index) / num_trees
-```ruby
+```
 
 ![Image not found](https://github.com/aryaninamdar/Robust-Random-Cut-Forest/blob/main/examples/example2-2.png)
