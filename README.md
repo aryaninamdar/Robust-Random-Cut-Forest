@@ -55,3 +55,47 @@ for i in range(6):
  │       └──(3)
  └──(1)
 ```
+
+### Deleting Points
+```ruby
+tree.forget_point(2)
+```
+
+```ruby
+─+
+ ├───+
+ │   ├───+
+ │   │   ├──(0)
+ │   │   └───+
+ │   │       ├──(5)
+ │   │       └──(4)
+ │   └──(3)
+ └──(1)
+ ```
+ 
+ ## Anomaly Score
+ The likelihood that a point is an outlier is measured by its collusive displacement (CoDisp): if including a new point significantly changes the model complexity (i.e. bit depth), then that point is more likely to be an outlier.
+
+```ruby
+# Seed tree with zero-mean, normally distributed data
+X = np.random.randn(100,2)
+tree = rrcf.RCTree(X)
+
+# Generate an inlier and outlier point
+inlier = np.array([0, 0])
+outlier = np.array([4, 4])
+
+# Insert into tree
+tree.insert_point(inlier, index='inlier')
+tree.insert_point(outlier, index='outlier')
+```
+
+```ruby
+tree.codisp('inlier')
+>>> 1.75
+```
+
+```ruby
+tree.codisp('outlier')
+>>> 39.0
+```
